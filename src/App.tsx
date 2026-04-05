@@ -37,7 +37,7 @@ interface Toast {
   message: string;
 }
 
-const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbz17ybGSGEZNwb1IGKz0dfpZqhbUwiCNq7rjE04TjiUQPczl6wZeyk9kP0Vhzr-rcI7/exec";
+const SHEETS_API_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
 
 const CATEGORIES = [
   "Electronics", "Fashion", "Home & Living", "Sports & Fitness",
@@ -266,19 +266,19 @@ export default function App() {
   };
 
   return (
-    <div style={{
-      backgroundColor: '#0a0a0f',
-      color: '#f0f0f5',
-      minHeight: '100vh',
-      fontFamily: "'DM Sans', sans-serif",
-      position: 'relative',
-      overflowX: 'hidden'
-    }}>
-      {/* Fonts & Global Styles */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap');
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+      <div style={{
+        backgroundColor: '#0a0a0f',
+        color: '#f0f0f5',
+        minHeight: '100vh',
+        fontFamily: "'Poppins', sans-serif",
+        position: 'relative',
+        overflowX: 'hidden'
+      }}>
+        {/* Fonts & Global Styles */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+          
+          * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         
         body { overflow-y: scroll; }
         ::-webkit-scrollbar { width: 8px; }
@@ -312,11 +312,11 @@ export default function App() {
         }
 
         .shimmer-text {
-          background: linear-gradient(120deg, #a78bfa, #e879f9, #a78bfa);
+          background: linear-gradient(120deg, #7c6af7, #a78bfa, #7c6af7);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: shimmer 3s linear infinite;
+          animation: shimmer 4s linear infinite;
         }
 
         .skeleton-line {
@@ -431,7 +431,7 @@ export default function App() {
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', height: '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '22px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ fontSize: '20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', letterSpacing: '-0.5px' }}>
               <span style={{ color: '#7c6af7' }}>✦</span> Nexus
             </div>
             <div className="nav-tabs-container" style={{ display: 'flex', gap: '8px' }}>
@@ -489,11 +489,11 @@ export default function App() {
                 color: '#34d399', fontSize: '13px', fontWeight: 600, marginBottom: '24px'
               }}>
                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#34d399', animation: 'pulse 2s infinite' }} />
-                AI Content Pipeline · Google Sheets + n8n
+                Content Automation Pipeline · Google Sheets + n8n
               </div>
-              <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, lineHeight: 1.1, marginBottom: '20px' }}>
+              <h1 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, lineHeight: 1.2, marginBottom: '20px', letterSpacing: '-1px' }}>
                 Generate product content with<br />
-                <span className="shimmer-text">AI precision</span>
+                <span className="shimmer-text">precision</span>
               </h1>
               <p style={{ color: '#7a7a8c', maxWidth: '600px', margin: '0 auto', fontSize: '18px' }}>
                 Transform raw features into high-converting descriptions and SEO metadata automatically using our multi-model pipeline.
@@ -519,7 +519,7 @@ export default function App() {
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '3px', background: 'linear-gradient(90deg, #7c6af7, #a78bfa)' }} />
                 <h2 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '8px' }}>New Product</h2>
-                <p style={{ color: '#7a7a8c', marginBottom: '32px' }}>Fill in details — AI handles the rest</p>
+                <p style={{ color: '#7a7a8c', marginBottom: '32px' }}>Fill in details to automate content creation</p>
                 
                 <form onSubmit={submitProduct} style={{ display: 'grid', gap: '24px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
@@ -575,7 +575,7 @@ export default function App() {
                         Submitting…
                       </>
                     ) : (
-                      <>✦ Generate AI Content</>
+                      <>Generate Product Content</>
                     )}
                   </button>
                 </form>
@@ -589,7 +589,7 @@ export default function App() {
                     <span style={{ fontSize: '12px', fontWeight: 700, color: '#7a7a8c', textTransform: 'uppercase', letterSpacing: '1px' }}>Live Preview</span>
                     {(formData.name || formData.features) && (
                       <span style={{ fontSize: '11px', fontWeight: 700, color: '#a78bfa', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        <span style={{ animation: 'pulse 2s infinite' }}>✦</span> AI incoming
+                        <span style={{ animation: 'pulse 2s infinite' }}>•</span> Processing
                       </span>
                     )}
                   </div>
@@ -597,7 +597,7 @@ export default function App() {
                     <div style={{ display: 'inline-block', padding: '4px 10px', borderRadius: '6px', backgroundColor: 'rgba(124, 106, 247, 0.1)', color: '#a78bfa', fontSize: '11px', fontWeight: 700, marginBottom: '12px' }}>
                       {formData.category}
                     </div>
-                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: '20px', marginBottom: '8px' }}>{formData.name || 'Product Name'}</h3>
+                    <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px' }}>{formData.name || 'Product Name'}</h3>
                     <div style={{ color: '#7c6af7', fontWeight: 700, fontSize: '18px', marginBottom: '16px' }}>₹ {formData.price || '0.00'}</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                       {formData.features ? formData.features.split(',').map((f, i) => (
@@ -761,7 +761,7 @@ export default function App() {
                       <div style={{ fontFamily: "'DM Mono', monospace", color: '#7c6af7', fontWeight: 700 }}>₹{p.price}</div>
                     </div>
                     
-                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: '19px', fontWeight: 700, marginBottom: '16px', lineHeight: 1.2 }}>{p.name}</h3>
+                    <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', lineHeight: 1.2 }}>{p.name}</h3>
                     
                     <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.05)', marginBottom: '16px' }} />
                     
@@ -775,7 +775,7 @@ export default function App() {
                       ) : p.ai_description ? (
                         <div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#a78bfa', fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
-                            <span>✦</span> AI Description
+                            <span>•</span> Generated Description
                           </div>
                           <p style={{ fontSize: '15px', color: '#7a7a8c', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                             {p.ai_description}
@@ -903,7 +903,7 @@ export default function App() {
               }}>
                 {selectedProduct.category}
               </div>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '32px', fontWeight: 800, marginBottom: '8px', lineHeight: 1.1 }}>
+              <h2 style={{ fontSize: '28px', fontWeight: 700, marginBottom: '8px', lineHeight: 1.2, letterSpacing: '-0.5px' }}>
                 {selectedProduct.name}
               </h2>
               <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '24px', color: '#f0f0f5', marginBottom: '32px' }}>
@@ -912,7 +912,7 @@ export default function App() {
 
               {selectedProduct.ai_description ? (
                 <div style={{ marginBottom: '32px' }}>
-                  <h3 style={{ fontSize: '14px', fontWeight: 700, color: '#7a7a8c', textTransform: 'uppercase', marginBottom: '16px' }}>AI Generated Description</h3>
+                  <h3 style={{ fontSize: '14px', fontWeight: 700, color: '#7a7a8c', textTransform: 'uppercase', marginBottom: '16px' }}>Automated Description</h3>
                   <div style={{
                     backgroundColor: 'rgba(124, 106, 247, 0.05)', border: '1px solid rgba(124, 106, 247, 0.1)',
                     borderRadius: '10px', padding: '24px', position: 'relative'
@@ -921,7 +921,7 @@ export default function App() {
                       position: 'absolute', top: '-10px', left: '20px',
                       backgroundColor: '#7c6af7', color: 'white', fontSize: '10px',
                       fontWeight: 700, padding: '2px 8px', borderRadius: '4px'
-                    }}>✦ AI · BEST VARIANT</div>
+                    }}>OPTIMIZED CONTENT</div>
                     <p style={{ fontSize: '15px', lineHeight: 1.6, color: '#f0f0f5', whiteSpace: 'pre-line' }}>
                       {selectedProduct.ai_description}
                     </p>
@@ -929,7 +929,7 @@ export default function App() {
                 </div>
               ) : (
                 <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: '#16161f', borderRadius: '10px', border: '1px dashed rgba(255,255,255,0.1)' }}>
-                  <p style={{ color: '#7a7a8c', fontStyle: 'italic' }}>AI content is still processing for this item...</p>
+                  <p style={{ color: '#7a7a8c', fontStyle: 'italic' }}>Content is being generated for this item...</p>
                 </div>
               )}
 
