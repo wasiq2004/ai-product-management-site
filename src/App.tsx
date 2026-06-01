@@ -68,7 +68,7 @@ export default function App() {
   const pollingInterval = useRef<NodeJS.Timeout | null>(null);
   const toastIdCounter = useRef(0);
 
-  const isLocalMode = SHEETS_API_URL === "https://script.google.com/macros/s/AKfycbyoz2ekthXLMS6KzCXLyRr5dpoiRhkm-1U5fzFO3utMoSRx3_wpss-cn_W1whkAga4D/exec";
+  const isLocalMode = SHEETS_API_URL === "";
 
   // Helpers
   const addToast = useCallback((type: Toast['type'], message: string) => {
